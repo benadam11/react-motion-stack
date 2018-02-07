@@ -6,37 +6,6 @@ A simple react component that gives you a beautiful 60fps swipe interaction.
 
 `npm i --save react-motion-stack`
 
-## Usage:
-
-Render the Motion stack (Note: In order to load the required CSS file with the below syntax,
-you will need to use some kind of module loader/bundler like Webpack or Browserify):
-
-```js
-import React from 'react';
-import { render } from 'react-dom';
-import MotionStack from 'react-motion-stack';
-import 'react-motion-stack/build/motion-stack.css';
-
-const data = Array.from({ length: 10 }, (_, i) => ({
-  id: new Date().getTime() + i,
-  element: (
-    <img
-      draggable={false}
-      src={`https://source.unsplash.com/random/${i + 1}`}
-    />
-  )
-}));
-
-render(
-  <MotionStack
-    data={data}
-    onSwipeEnd={this.onSwipeEnd}
-    render={props => props.element}
-  />,
-  document.body
-);
-```
-
 ## Example:
 
 [Demo](https://jz3ok45pww.codesandbox.io/)
