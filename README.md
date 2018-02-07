@@ -2,6 +2,10 @@
 
 A simple react component that gives you a beautiful 60fps swipe interaction.
 
+## Install:
+
+`npm i --save react-motion-stack`
+
 ## Usage:
 
 Render the Motion stack (Note: In order to load the required CSS file with the below syntax,
