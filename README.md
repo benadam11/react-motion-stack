@@ -40,8 +40,9 @@ render(
 ```js
 import React from 'react';
 import { render } from 'react-dom';
-import MotionStack from '../src/main';
-import './demo.css';
+import MotionStack from 'react-motion-stack';
+import 'react-motion-stack/build/motion-stack.css';
+import './index.css';
 
 const data = Array.from({ length: 10 }, (_, i) => ({
   id: new Date().getTime() + i,
