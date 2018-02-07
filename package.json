@@ -1,7 +1,7 @@
 {
   "name": "react-motion-stack",
   "description":
-    "A simple react component that gives you a beatufiul 60fps swipe interaction ",
+    "A simple react component that gives you a beautiful 60fps swipe interaction",
   "version": "0.0.2",
   "main": "build/cjs/react-motion-stack.js",
   "module": "build/esm/react-motion-stack.js",
