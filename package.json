@@ -30,5 +30,6 @@
     "test": "node test/test.js",
     "pretest": "npm run build"
   },
-  "files": ["build"]
+  "files": ["build"],
+  "keywords": ["card", "swipe", "tinder", "animation", "react", "motion"]
 }
