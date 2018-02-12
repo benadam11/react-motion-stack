@@ -8,7 +8,7 @@ A simple react component that gives you a beautiful 60fps swipe interaction.
 
 ## Example:
 
-[Demo](https://jz3ok45pww.codesandbox.io/)
+[Demo](https://codesandbox.io/s/jz3ok45pww)
 
 ```js
 import React from 'react';
