@@ -350,7 +350,9 @@ var _initialiseProps = function _initialiseProps() {
       var direction = x > 0 ? 'right' : 'left';
 
       if (_this3.props.onBeforeSwipeEnd) {
-        _this3.props.onBeforeSwipeEnd(state, function (_direction) {
+        _this3.handleMouseUp();
+
+        _this3.props.onBeforeSwipeEnd(_this3.state, function (_direction) {
           return _this3.swipe(_direction || direction, id);
         });
       } else {
