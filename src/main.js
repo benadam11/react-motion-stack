@@ -30,7 +30,8 @@ class MotionStack extends React.Component {
     threshold: 200,
     renderCount: 3,
     infinite: true,
-    onSwipeEnd: () => {}
+    onSwipeEnd: () => {},
+    onBeforeSwipeEnd: null,
   };
 
   constructor({ data }) {
@@ -59,6 +60,14 @@ class MotionStack extends React.Component {
     window.removeEventListener('touchend', this.handleMouseUp);
     window.removeEventListener('mousemove', this.handleMouseMove);
     window.removeEventListener('mouseup', this.handleMouseUp);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.data.length !== nextProps.data.length) {
+      this.setState({
+        data: nextProps.data
+      })
+    }
   }
 
   handleMouseDown = (id, pressX, { pageX }) => {
@@ -110,12 +119,23 @@ class MotionStack extends React.Component {
   };
 
   handleSwipe = (x, id) => {
+    const direction = x > 0 ? 'right' : 'left';
+
+    if (this.props.onBeforeSwipeEnd) {
+      this.handleMouseUp();
+      this.props.onBeforeSwipeEnd(this.state, (_direction) => this.swipe(_direction || direction, id))
+    } else {
+      this.swipe(direction, id)
+    }
+  };
+
+  swipe = (direction, id) => {
     this.setState({
+      direction,
       swiped: true,
-      direction: x > 0 ? 'right' : 'left',
       swipedId: id
     });
-  };
+  }
 
   accept = () => {
     this.handleSwipe(1, this.state.data[0].id);
