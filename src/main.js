@@ -122,7 +122,8 @@ class MotionStack extends React.Component {
     const direction = x > 0 ? 'right' : 'left';
 
     if (this.props.onBeforeSwipeEnd) {
-      this.props.onBeforeSwipeEnd(state, (_direction) => this.swipe(_direction || direction, id))
+      this.handleMouseUp();
+      this.props.onBeforeSwipeEnd(this.state, (_direction) => this.swipe(_direction || direction, id))
     } else {
       this.swipe(direction, id)
     }
