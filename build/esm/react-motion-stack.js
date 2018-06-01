@@ -247,7 +247,10 @@ Object.defineProperty(MotionStack, "defaultProps", {
     threshold: 200,
     renderCount: 3,
     infinite: true,
-    onSwipeEnd: function onSwipeEnd() {}
+    onSwipeEnd: function onSwipeEnd() {},
+    onBeforeSwipeEnd: function onBeforeSwipeEnd() {
+      return true;
+    }
   }
 });
 
@@ -342,11 +345,13 @@ var _initialiseProps = function _initialiseProps() {
     enumerable: true,
     writable: true,
     value: function value(x, id) {
-      _this3.setState({
-        swiped: true,
-        direction: x > 0 ? 'right' : 'left',
-        swipedId: id
-      });
+      if (_this3.props.onBeforeSwipeEnd(_this3.state)) {
+        _this3.setState({
+          swiped: true,
+          direction: x > 0 ? 'right' : 'left',
+          swipedId: id
+        });
+      }
     }
   });
   Object.defineProperty(this, "accept", {

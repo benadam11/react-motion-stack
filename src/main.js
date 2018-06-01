@@ -30,7 +30,8 @@ class MotionStack extends React.Component {
     threshold: 200,
     renderCount: 3,
     infinite: true,
-    onSwipeEnd: () => {}
+    onSwipeEnd: () => {},
+    onBeforeSwipeEnd: () => true,
   };
 
   constructor({ data }) {
@@ -118,11 +119,13 @@ class MotionStack extends React.Component {
   };
 
   handleSwipe = (x, id) => {
-    this.setState({
-      swiped: true,
-      direction: x > 0 ? 'right' : 'left',
-      swipedId: id
-    });
+    if (this.props.onBeforeSwipeEnd(this.state)) {
+      this.setState({
+        swiped: true,
+        direction: x > 0 ? 'right' : 'left',
+        swipedId: id
+      });
+    }
   };
 
   accept = () => {
