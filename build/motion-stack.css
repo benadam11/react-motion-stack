@@ -1,0 +1,13 @@
+.motion-card-stack {
+  display: grid;
+  grid-template-columns: 240px;
+  grid-template-rows: 360px;
+  align-items: center;
+  justify-content: center;
+}
+
+.motion-card-item {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  will-change: transform;
+}
