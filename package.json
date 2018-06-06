@@ -1,7 +1,6 @@
 {
   "name": "react-motion-stack",
-  "description":
-    "A simple react component that gives you a beautiful 60fps swipe interaction",
+  "description": "A simple react component that gives you a beautiful 60fps swipe interaction",
   "version": "0.0.3",
   "main": "build/cjs/react-motion-stack.js",
   "module": "build/esm/react-motion-stack.js",
@@ -19,6 +18,7 @@
     "@babel/preset-react": "^7.0.0-beta.39",
     "@babel/preset-stage-1": "^7.0.0-beta.39",
     "react-dom": "^16.0.0",
+    "rollup": "^0.59.4",
     "rollup-plugin-babel": "^4.0.0-beta.0",
     "rollup-plugin-commonjs": "^8.0.2",
     "rollup-plugin-css-only": "^0.4.0",
@@ -30,6 +30,15 @@
     "test": "node test/test.js",
     "pretest": "npm run build"
   },
-  "files": ["build"],
-  "keywords": ["card", "swipe", "tinder", "animation", "react", "motion"]
+  "files": [
+    "build"
+  ],
+  "keywords": [
+    "card",
+    "swipe",
+    "tinder",
+    "animation",
+    "react",
+    "motion"
+  ]
 }

@@ -28,6 +28,13 @@ const data = Array.from({ length: 10 }, (_, i) => ({
 }));
 
 class App extends React.Component {
+  onBeforeSwipe = (swipe, direction, state) => {
+    console.log('direction', direction);
+    console.log('state', state);
+
+    swipe();
+  }
+
   onSwipeEnd = ({ data }) => {
     console.log('data', data);
   };
@@ -47,6 +54,7 @@ class App extends React.Component {
         <MotionStack
           data={data}
           onSwipeEnd={this.onSwipeEnd}
+          onBeforeSwipe={this.onBeforeSwipe}
           render={props => props.element}
           renderButtons={this.renderButtons}
         />
@@ -82,6 +90,12 @@ The number of Motion Cards you want to render at a time.
 `PropTypes.bool`
 
 Infinite defaults to `true` and just puts your card at the end of the list when the swipe is finished. `false` removes it from the list.
+
+#### onBeforeSwipe
+
+`PropTypes.func`
+
+A callback function that returns the next direction, a callback to execute the swipe and the state of the component.
 
 #### onSwipeEnd
 
