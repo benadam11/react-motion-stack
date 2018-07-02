@@ -55,14 +55,6 @@ class MotionStack extends React.Component {
     window.addEventListener('mouseup', this.handleMouseUp);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (this.props.data.length !== nextProps.data.length) {
-      this.setState({
-        data: nextProps.data
-      })
-    }
-  }
-
   componentWillUnMount() {
     window.removeEventListener('touchmove', this.handleTouchMove);
     window.removeEventListener('touchend', this.handleMouseUp);

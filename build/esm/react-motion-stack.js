@@ -146,15 +146,6 @@ function (_React$Component) {
       window.addEventListener('mouseup', this.handleMouseUp);
     }
   }, {
-    key: "componentWillReceiveProps",
-    value: function componentWillReceiveProps(nextProps) {
-      if (this.props.data.length !== nextProps.data.length) {
-        this.setState({
-          data: nextProps.data
-        });
-      }
-    }
-  }, {
     key: "componentWillUnMount",
     value: function componentWillUnMount() {
       window.removeEventListener('touchmove', this.handleTouchMove);
