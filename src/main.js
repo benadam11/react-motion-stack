@@ -4,10 +4,7 @@ import { Motion, spring } from 'react-motion';
 import './main.css';
 
 const Fragment = React.Fragment || 'div';
-
-const clamp = (n, min, max) => {
-  return Math.max(Math.min(n, max), min);
-};
+const clamp = (n, min, max) => Math.max(Math.min(n, max), min);
 
 class MotionStack extends React.Component {
   static propTypes = {
@@ -31,7 +28,7 @@ class MotionStack extends React.Component {
     renderCount: 3,
     infinite: true,
     onSwipeEnd: () => {},
-    onBeforeSwipe: null,
+    onBeforeSwipe: null
   };
 
   constructor({ data }) {
@@ -231,7 +228,7 @@ class MotionStack extends React.Component {
 
     return (
       <Fragment>
-        <div className="motion-card-stack" ref={el => (this.el = el)}>
+        <div className='motion-card-stack' ref={el => (this.el = el)}>
           {data.map(
             ({ id, ...rest }, i) =>
               i < renderCount && (
@@ -246,22 +243,21 @@ class MotionStack extends React.Component {
                     swipedId === id && action(swipedId);
                   }}
                 >
-                  {({ scale, shadow, x, rotate, opacity }) => {
-                    return (
-                      <div
-                        className="motion-card-item"
-                        onMouseDown={this.handleMouseDown.bind(null, id, x)}
-                        onTouchStart={this.handleTouchStart.bind(null, id, x)}
-                        children={this.props.render({ id, ...rest })}
-                        style={{
-                          boxShadow: `rgba(0, 0, 0, 0.2) 0px ${shadow}px ${shadow}px 0px`,
-                          opacity,
-                          transform: `translate3d(${x}px, 0, 0) scale(${scale}) rotate(${rotate}deg)`,
-                          zIndex: data.length - i
-                        }}
-                      />
-                    );
-                  }}
+                  {({ scale, shadow, x, rotate, opacity }) => (
+                    <div
+                      className='motion-card-item'
+                      onMouseDown={this.handleMouseDown.bind(null, id, x)}
+                      onTouchStart={this.handleTouchStart.bind(null, id, x)}
+                      style={{
+                        boxShadow: `rgba(0, 0, 0, 0.2) 0 ${shadow}px ${shadow}px 0`,
+                        opacity,
+                        transform: `translate3d(${x}px, 0, 0) scale(${scale}) rotate(${rotate}deg)`,
+                        zIndex: data.length - i
+                      }}
+                    >
+                      { this.props.render({ id, ...rest }) }
+                    </div>
+                  )}
                 </Motion>
               )
           )}
